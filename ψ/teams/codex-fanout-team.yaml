@@ -1,0 +1,44 @@
+# NOTE (maw-rs #658): last member's `worktree:`/`branch:` path gets its "agents/" prefix
+# stripped by preflight AND team up (canonicalize fails). codex-1 is last here, so a
+# symlink `codex-1 -> agents/codex-1` was added at repo root as a workaround. Remove once
+# #658 ships; until then keep the symlink or reorder lead to be the last member.
+name: codex-fanout-team
+project: nat-build-with-oracle/codex-fanout
+session: codex-fanout
+
+goal: |
+  Lead (Claude) dispatches tasks to a single codex coder in an isolated worktree.
+  Coder owns the loop to done-criteria. PR -> alpha only, never main.
+
+engines:
+  omx-5: "bun $HOME/.claude/skills/oracle-team/scripts/codex-setup.ts 5 && CODEX_HOME=$PWD/.codex OMX_AUTO_UPDATE=0 omx --direct --madmax"
+
+members:
+  - role: lead
+    name: codex-fanout
+    engine: claude
+    worktree: false
+    branch: alpha
+    prompt: |
+      Lead orchestrator. NEVER write code yourself.
+      Dispatch via foreground maw hey only (not background &).
+      DEFINE done-criteria per task. Let the coder OWN the loop.
+      NO-GAP DISPATCH: include next task in same message as confirmation.
+      Peek the coder every 15-20 min. Merge is the lead's job.
+
+  - role: codex-1
+    name: codex-1
+    engine: omx-5
+    worktree: agents/codex-1
+    branch: agents/codex-1
+    prompt: |
+      Coder. WAIT for task via maw hey.
+      Implement MINIMAL precise code in YOUR worktree.
+      OWN the loop: implement -> test -> fix -> repeat.
+      Report back via: maw hey codex-fanout:lead "done/blocked — <details>"
+      Never touch lead's checkout or other worktrees.
+      PR -> alpha branch only, never main.
+
+lifecycle:
+  worktree: true
+  merge_on_shutdown: false
