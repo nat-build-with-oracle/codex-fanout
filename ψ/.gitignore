@@ -1,0 +1,5 @@
+active/
+memory/logs/
+learn/**/origin
+incubate/**/origin
+.awaken-state.json
