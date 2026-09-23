@@ -1,0 +1,266 @@
+# oh-my-codex top-level settings (must be before any [table])
+notify = ["node", "/Users/nat/.nvm/versions/node/v24.15.0/lib/node_modules/oh-my-codex/dist/scripts/notify-hook.js"]
+model_reasoning_effort = "xhigh"
+developer_instructions = "You have oh-my-codex installed. AGENTS.md is the orchestration brain and main control surface. Follow AGENTS.md for skill/keyword routing, $name workflow invocation, and role-specialized subagents; when spawning native subagents, set `agent_type` to an installed role and never omit it for OMX work. Use outcome-first, concise progress updates: state the target result, constraints, validation evidence, and stop condition before adding process detail. Native subagents live in .codex/agents and may handle independent parallel subtasks within one Codex session or team pane. Skills load from .codex/skills, not native-agent TOMLs. Treat installed prompts as narrower execution surfaces under AGENTS.md authority."
+
+model = "gpt-5.6-sol"
+# oh-my-codex seeded behavioral defaults (uninstall removes unchanged defaults)
+model_context_window = 250000
+model_auto_compact_token_limit = 200000
+# End oh-my-codex seeded behavioral defaults
+
+check_for_update_on_startup = false
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arra-oracle-v3"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/maw-rs"]
+trust_level = "trusted"
+
+[notice]
+hide_rate_limit_model_nudge = true
+[features]
+multi_agent = true
+child_agents_md = true
+hooks = true
+goals = true
+
+[shell_environment_policy.set]
+USE_OMX_EXPLORE_CMD = "0"
+
+[agents]
+max_threads = 6
+max_depth = 2
+
+[hooks.state]
+
+# ============================================================
+# oh-my-codex (OMX) Configuration
+# Managed by omx setup - manual edits preserved on next setup
+# ============================================================
+
+# OMX-owned Codex hook trust state
+# Trusts only setup-managed native hook wrappers.
+[hooks.state."/Users/nat/.codex-team/5/hooks.json:post_compact:0:0"]
+trusted_hash = "sha256:45901d80413da5788265d4b630271461ed327693b258ecc507966ba161b3dd1c"
+
+[hooks.state."/Users/nat/.codex-team/5/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:9d15f3e952e3592a6130fe6e7faa75007e42f429ec2149302dcc87ccc3ac2102"
+
+[hooks.state."/Users/nat/.codex-team/5/hooks.json:pre_compact:0:0"]
+trusted_hash = "sha256:b365a5763c5415d49ca35b544fd1116e5a2085b644a8b15f264a9a501582380b"
+
+[hooks.state."/Users/nat/.codex-team/5/hooks.json:pre_tool_use:0:0"]
+trusted_hash = "sha256:9f8e2a2482b36945dd07b02cebee28205c62990ba441de9060700e9fd5316a88"
+
+[hooks.state."/Users/nat/.codex-team/5/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:f502b0f5416bd657612d617d26ad74023037c3a3bfc6501694f6a93c9595b239"
+
+[hooks.state."/Users/nat/.codex-team/5/hooks.json:stop:0:0"]
+trusted_hash = "sha256:4aca5793e6d6f2ea9d38780e45420eae8549fd0159a20b58922ae9e8b074947a"
+
+[hooks.state."/Users/nat/.codex-team/5/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:292ab67a4ff5694a24a5035f5a687bdc481347ec4d898c84d8041fe6a427a04d"
+
+[hooks.state."/Users/nat/.codex/hooks.json:pre_tool_use:0:0"]
+trusted_hash = "sha256:9f8e2a2482b36945dd07b02cebee28205c62990ba441de9060700e9fd5316a88"
+
+[hooks.state."/Users/nat/.codex/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:9d15f3e952e3592a6130fe6e7faa75007e42f429ec2149302dcc87ccc3ac2102"
+
+[hooks.state."/Users/nat/.codex/hooks.json:pre_compact:0:0"]
+trusted_hash = "sha256:b365a5763c5415d49ca35b544fd1116e5a2085b644a8b15f264a9a501582380b"
+
+[hooks.state."/Users/nat/.codex/hooks.json:post_compact:0:0"]
+trusted_hash = "sha256:45901d80413da5788265d4b630271461ed327693b258ecc507966ba161b3dd1c"
+
+[hooks.state."/Users/nat/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:f502b0f5416bd657612d617d26ad74023037c3a3bfc6501694f6a93c9595b239"
+
+[hooks.state."/Users/nat/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:292ab67a4ff5694a24a5035f5a687bdc481347ec4d898c84d8041fe6a427a04d"
+
+[hooks.state."/Users/nat/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:d6c4461eec1b430378f883e0fa30beebdbe1ad7cf827a3021889bf286a38771f"
+
+[hooks.state."/Users/nat/.codex/hooks.json:stop:1:0"]
+trusted_hash = "sha256:4aca5793e6d6f2ea9d38780e45420eae8549fd0159a20b58922ae9e8b074947a"
+# End OMX-owned Codex hook trust state
+
+# OMX TUI StatusLine (Codex CLI v0.101.0+)
+[tui]
+# omx:managed-status-line
+status_line = ["model-with-reasoning", "git-branch", "context-remaining", "total-input-tokens", "total-output-tokens", "five-hour-limit", "weekly-limit"]
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+
+# ============================================================
+# End oh-my-codex
+
+[projects."/opt/Code/github.com/laris-co/transcriber-oracle"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/crew-master-oracle"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/laris-co/esphome-floodboy-4g"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/laris-co/DustBoy-Phd-Oracle"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/laris-co/athena-oracle"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/nat-build-with-oracle/webhook-relay-v3"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-1"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-2"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-3"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-4"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-5"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-6"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-7"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-8"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-9"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle.wt-codex-10"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-1"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-2"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-3"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-4"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-5"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-6"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-7"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-8"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-9"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/arkit-oracle/codex-10"]
+trust_level = "trusted"
+[projects."/opt/Code/github.com/nat-build-with-oracle/webhook-relay-v3/agents/1-codex-4"]
+trust_level = "trusted"
+[projects."/opt/Code/github.com/nat-build-with-oracle/webhook-relay-v3/agents/1-codex-5"]
+trust_level = "trusted"
+[projects."/opt/Code/github.com/nat-build-with-oracle/webhook-relay-v3/agents/1-codex-6"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/maw-fleetpad/agents/fleetpad-codex-layout"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/maw-fleetpad/agents/fleetpad-codex-capture"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/maw-fleetpad/agents/fleetpad-codex-datachannel"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/maw-fleetpad"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/maw-fleetpad/agents/fleetpad-codex-shared"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/maw-fleetpad/agents/fleetpad-codex-secrets"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/maw-fleetpad/agents/fleetpad-codex-ids"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/turso-oracle/agents/turso-codex-ingest"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/turso-oracle"]
+trust = true
+
+[projects."/opt/Code/github.com/the-oracle-keeps-the-human-human/kru32-oracle/agents/kru32-wasm-tabs"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/the-oracle-keeps-the-human-human/kru32-oracle/agents/kru32-wasm-preview"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/the-oracle-keeps-the-human-human/kru32-oracle"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/fable-learn-speckit-oracle"]
+trust_level = "trusted"
+
+[projects."/Users/nat"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/meyd-605/maw-board"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/nazt/maw-serve"]
+trust_level = "trusted"
+
+[projects."/opt/Code/github.com/Soul-Brews-Studio/pigment-oracle"]
+trust_level = "trusted"
+
+suppress_unstable_features_warning = true
+
+[projects."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1"]
+trust_level="trusted"
+
+# OMX worktree-local Codex hook trust state (managed by codex-setup.ts)
+[hooks.state."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1/.codex/hooks.json:post_compact:0:0"]
+trusted_hash = "sha256:45901d80413da5788265d4b630271461ed327693b258ecc507966ba161b3dd1c"
+
+[hooks.state."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1/.codex/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:9d15f3e952e3592a6130fe6e7faa75007e42f429ec2149302dcc87ccc3ac2102"
+
+[hooks.state."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1/.codex/hooks.json:pre_compact:0:0"]
+trusted_hash = "sha256:b365a5763c5415d49ca35b544fd1116e5a2085b644a8b15f264a9a501582380b"
+
+[hooks.state."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1/.codex/hooks.json:pre_tool_use:0:0"]
+trusted_hash = "sha256:9f8e2a2482b36945dd07b02cebee28205c62990ba441de9060700e9fd5316a88"
+
+[hooks.state."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:f502b0f5416bd657612d617d26ad74023037c3a3bfc6501694f6a93c9595b239"
+
+[hooks.state."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:d6c4461eec1b430378f883e0fa30beebdbe1ad7cf827a3021889bf286a38771f"
+
+[hooks.state."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1/.codex/hooks.json:stop:1:0"]
+trusted_hash = "sha256:4aca5793e6d6f2ea9d38780e45420eae8549fd0159a20b58922ae9e8b074947a"
+
+[hooks.state."/opt/Code/github.com/nat-build-with-oracle/codex-fanout/agents/codex-1/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:292ab67a4ff5694a24a5035f5a687bdc481347ec4d898c84d8041fe6a427a04d"
+# End OMX worktree-local Codex hook trust state

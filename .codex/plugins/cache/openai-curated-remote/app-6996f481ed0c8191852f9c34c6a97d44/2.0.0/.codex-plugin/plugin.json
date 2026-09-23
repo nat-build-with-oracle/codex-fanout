@@ -1,0 +1,26 @@
+{
+  "apps": "./.app.json",
+  "author": {
+    "name": "idealista S.A.U."
+  },
+  "description": "The easiest way to buy or rent properties is now on ChatGPT 😊\n\nBy connecting idealista with ChatGPT, you’ll get access to the largest selection of property listings in Spain, Italy, and Portugal, including photos, property descriptions, and idealista maps, combined with ChatGPT’s conversational capabilities.\n\nTry asking ChatGPT, by voice or text, things like:\n- show me flats with a lift in the Malasaña area of Madrid for under €1,300 a month\n- find a motorcycle garage in Lisbon\n- any rooms with a private bathroom and terrace in Florence?\n\nYou can also refine your search by telling ChatGPT your specific requirements.\n\nTry it now and connect idealista with your ChatGPT.",
+  "interface": {
+    "capabilities": [],
+    "category": "Other",
+    "defaultPrompt": [
+      "muéstrame pisos con ascensor en Malasaña por menos de 1300 €/mes",
+      "procura arrendar uma garagem para motas em Lisboa",
+      "ci sono stanze in affitto a Firenze con bagno privato e balcone?"
+    ],
+    "developerName": "idealista S.A.U.",
+    "displayName": "idealista",
+    "longDescription": "The easiest way to buy or rent properties is now on ChatGPT 😊\n\nBy connecting idealista with ChatGPT, you’ll get access to the largest selection of property listings in Spain, Italy, and Portugal, including photos, property descriptions, and idealista maps, combined with ChatGPT’s conversational capabilities.\n\nTry asking ChatGPT, by voice or text, things like:\n- show me flats with a lift in the Malasaña area of Madrid for under €1,300 a month\n- find a motorcycle garage in Lisbon\n- any rooms with a private bathroom and terrace in Florence?\n\nYou can also refine your search by telling ChatGPT your specific requirements.\n\nTry it now and connect idealista with your ChatGPT.",
+    "privacyPolicyURL": "https://www.idealista.com/ayuda/articulos/politica-de-privacidad/",
+    "shortDescription": "Find properties to buy or rent",
+    "supportURL": "https://www.idealista.com/info/contacto",
+    "termsOfServiceURL": "https://www.idealista.com/ayuda/articulos/terminos-y-condiciones-generales-de-idealista/",
+    "websiteURL": "https://www.idealista.com/"
+  },
+  "name": "app-6996f481ed0c8191852f9c34c6a97d44",
+  "version": "2.0.0"
+}
